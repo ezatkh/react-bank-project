@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import Transaction from "./Transaction";
 
 class Transactions extends Component {
   render() {
-    return <div>Transactions component</div>;
+    let allTransactions = this.props.transactions.map((transaction) => {
+      return <Transaction transaction={transaction} />;
+    });
+    return <div className="transactions">{allTransactions}</div>;
   }
 }
 
