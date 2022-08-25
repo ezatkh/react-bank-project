@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/Transactions.css";
 import Transaction from "./Transaction";
 
 class Transactions extends Component {

@@ -1,0 +1,27 @@
+.App{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(80,222,134);
+    background: linear-gradient(90deg, rgba(80,222,134,1) 25%, rgba(13,71,34,1) 100%);
+}
+.header{
+    font-size: calc(1rem + 1vw );
+    margin-left: 2%;
+    margin-right: 2%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+    
+}
+.content{
+    height: 100%;
+    font-size: calc(0.6rem + 1vw );
+    background:#f1f2f6;
+    border-radius: 50px 50px 0px 0px;
+}
+.innerContent{
+    margin: 2%;
+}

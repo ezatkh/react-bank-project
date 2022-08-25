@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-
+import "../styles/Transaction.css";
 class Transaction extends Component {
   render() {
     return (
       <div className="transaction">
-        <p>amount: {this.props.transaction.amount}</p>
-        <p>vendor: {this.props.transaction.vendor}</p>
-        <p>category: {this.props.transaction.category}</p>
+        <div>{this.props.transaction.vendor}</div>
+        <div>{this.props.transaction.category}</div>
+        <div>{this.props.transaction.amount}</div>
         <i className="fa fa-trash-o"></i>
       </div>
     );

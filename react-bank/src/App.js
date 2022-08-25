@@ -21,10 +21,17 @@ class App extends Component {
       return key.vendor;
     });
     return (
-      <div className="container">
-        <div className="sum">sum:{totalSum}</div>
-        <Transactions key={keys} transactions={this.state.transactions} />
-        <Operations />
+      <div className="App">
+        <div className="header">
+          <p>Ezat khaleeli</p>
+          <p>Transactions Amount: {totalSum}</p>
+        </div>
+        <div className="content">
+          <div className="innerContent">
+            <Transactions key={keys} transactions={this.state.transactions} />
+            <Operations />
+          </div>
+        </div>
       </div>
     );
   }

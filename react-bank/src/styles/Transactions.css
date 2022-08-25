@@ -1,0 +1,9 @@
+.transactions{  
+    
+    color: rgb(32, 44, 54);
+}
+.fa{
+    color: red;
+    font-weight: bold;
+    font-size: calc(1rem + 1vw ); 
+}

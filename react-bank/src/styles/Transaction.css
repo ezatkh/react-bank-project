@@ -1,0 +1,8 @@
+.transaction{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25%);
+    grid-auto-rows: 100px;
+    justify-items:center;
+    align-items: center;
+    border-bottom: 1px solid rgb(32, 44, 54);
+}

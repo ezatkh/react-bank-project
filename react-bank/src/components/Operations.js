@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-
+import "../styles/Operations.css";
 class Operations extends Component {
   render() {
     return (
-      <div>
-        <div className="amountInput">
-          <label>amount</label>
-          <input type="text" />
-        </div>
+      <div className="operations">
         <div className="vendorInput">
           <label>vendor</label>
           <input type="text" />
         </div>
         <div className="categoryInput">
           <label>category</label>
+          <input type="text" />
+        </div>
+        <div className="amountInput">
+          <label>amount</label>
           <input type="text" />
         </div>
         <div className="btns">
