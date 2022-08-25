@@ -42,8 +42,19 @@ class App extends Component {
       return key.vendor;
     });
     if (totalSum > 500) {
-      balance = <p className="greenBalance">Balance:{totalSum}</p>;
-    } else balance = <p className="redBalance">Balance:{totalSum}</p>;
+      balance = (
+        <p className="greenBalance">
+          <span>Balance:</span>
+          {totalSum}
+        </p>
+      );
+    } else
+      balance = (
+        <p className="redBalance">
+          <span>Balance:</span>
+          {totalSum}
+        </p>
+      );
     return (
       <Router>
         <div className="App">

@@ -7,3 +7,20 @@
     font-weight: bold;
     font-size: calc(1rem + 1vw ); 
 }
+.btn{
+font-size: calc(0.6rem + 1vw );
+margin-top: 2%;
+border-radius: 15px;
+background: linear-gradient(90deg, rgb(187, 188, 188) 25%, rgba(107,113,113,1) 100%);
+height:  calc(2.8rem + 4vh );
+width: calc(6rem + 20vw );
+font-size: calc(.8rem + 1vw );
+}
+.btn:hover {
+    transform: scale(0.96);
+  opacity: .80;
+  }
+  .s{
+    display: flex;
+    justify-content: center;
+  }

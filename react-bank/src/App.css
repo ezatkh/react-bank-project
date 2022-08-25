@@ -32,3 +32,9 @@ color: #16b458
 .redBalance{
     color: #a22719
 }
+span{
+    color:rgb(32, 44, 54); 
+}
+a{
+    text-decoration: none;
+}

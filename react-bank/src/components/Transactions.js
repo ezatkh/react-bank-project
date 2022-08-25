@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/Transactions.css";
 import Transaction from "./Transaction";
+import { Link } from "react-router-dom";
 
 class Transactions extends Component {
   render() {
@@ -12,7 +13,16 @@ class Transactions extends Component {
         />
       );
     });
-    return <div className="transactions">{allTransactions} </div>;
+    return (
+      <div className="transactions">
+        {allTransactions}
+        <Link to="/operation">
+          <div className="s">
+            <button className="btn">Insert transaction</button>
+          </div>
+        </Link>
+      </div>
+    );
   }
 }
 

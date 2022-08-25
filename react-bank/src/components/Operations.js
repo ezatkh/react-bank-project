@@ -26,25 +26,40 @@ class Operations extends Component {
     });
   };
   DepositTransactions = () => {
-    let newTransaction = {
-      amount: parseInt(this.state.amountInput),
-      vendor: this.state.vendorInput,
-      category: this.state.categoryInput,
-    };
-    this.props.addTransaction(newTransaction);
+    let amountInput = this.state.amountInput;
+    let vendorInput = this.state.vendorInput;
+    let categoryInput = this.state.categoryInput;
+    if (amountInput && vendorInput && categoryInput) {
+      if (!isNaN(amountInput)) {
+        let newTransaction = {
+          amount: parseInt(amountInput),
+          vendor: vendorInput,
+          category: categoryInput,
+        };
+        this.props.addTransaction(newTransaction);
+      } else alert("amount should be a number");
+    } else alert("please fill all fields");
   };
+
   WithdrawTransactions = () => {
-    let newTransaction = {
-      amount: parseInt(this.state.amountInput) * -1,
-      vendor: this.state.vendorInput,
-      category: this.state.categoryInput,
-    };
-    this.props.addTransaction(newTransaction);
+    let amountInput = this.state.amountInput;
+    let vendorInput = this.state.vendorInput;
+    let categoryInput = this.state.categoryInput;
+    if (amountInput && vendorInput && categoryInput) {
+      if (!isNaN(amountInput)) {
+        let newTransaction = {
+          amount: parseInt(amountInput) * -1,
+          vendor: vendorInput,
+          category: categoryInput,
+        };
+        this.props.addTransaction(newTransaction);
+      } else alert("amount should be a number");
+    } else alert("please fill all fields");
   };
   render() {
     return (
       <div className="operations">
-        <div className="vendorInput">
+        <div className="vendorInput in">
           <label>vendor</label>
           <input
             type="text"
@@ -52,7 +67,7 @@ class Operations extends Component {
             onChange={this.changeVendorInput}
           />
         </div>
-        <div className="categoryInput">
+        <div className="categoryInput in">
           <label>category</label>
           <input
             type="text"
@@ -60,7 +75,7 @@ class Operations extends Component {
             onChange={this.changeCategoryInput}
           />
         </div>
-        <div className="amountInput">
+        <div className="amountInput in">
           <label>amount</label>
           <input
             type="text"
