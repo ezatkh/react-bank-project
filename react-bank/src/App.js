@@ -3,17 +3,21 @@ import React, { Component } from "react";
 import Transactions from "./components/Transactions";
 import Operations from "./components/Operations";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import axios from "axios";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      transactions: [
-        { amount: 3200, vendor: "Elevation", category: "Salary" },
-        { amount: -7, vendor: "Runescape", category: "Entertainment" },
-        { amount: -20, vendor: "Subway", category: "Food" },
-        { amount: -98, vendor: "La Baguetterie", category: "Food" },
-      ],
+      transactions: [],
     };
+  }
+  async getTransactions() {
+    return axios.get("http://localhost:8000/transactions");
+  }
+
+  async componentDidMount() {
+    const transactionsInfo = await this.getTransactions();
+    this.setState({ transactions: transactionsInfo.data });
   }
   deleteTransaction = (transaction) => {
     let toModefyTransactions = [...this.state.transactions];
