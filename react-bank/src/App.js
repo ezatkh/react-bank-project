@@ -14,6 +14,18 @@ class App extends Component {
       ],
     };
   }
+  deleteTransaction = (transaction) => {
+    let toModefyTransactions = [...this.state.transactions];
+    for (let index in toModefyTransactions) {
+      if (toModefyTransactions[index].vendor === transaction) {
+        toModefyTransactions.splice(index, 1);
+        break;
+      }
+    }
+    this.setState({
+      transactions: toModefyTransactions,
+    });
+  };
   render() {
     let totalSum = 0;
     let keys = this.state.transactions.map((key) => {
@@ -28,7 +40,11 @@ class App extends Component {
         </div>
         <div className="content">
           <div className="innerContent">
-            <Transactions key={keys} transactions={this.state.transactions} />
+            <Transactions
+              key={keys}
+              transactions={this.state.transactions}
+              deleteTransaction={this.deleteTransaction}
+            />
             <Operations />
           </div>
         </div>

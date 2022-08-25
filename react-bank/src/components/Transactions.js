@@ -5,7 +5,12 @@ import Transaction from "./Transaction";
 class Transactions extends Component {
   render() {
     let allTransactions = this.props.transactions.map((transaction) => {
-      return <Transaction transaction={transaction} />;
+      return (
+        <Transaction
+          transaction={transaction}
+          deleteTransaction={this.props.deleteTransaction}
+        />
+      );
     });
     return <div className="transactions">{allTransactions}</div>;
   }

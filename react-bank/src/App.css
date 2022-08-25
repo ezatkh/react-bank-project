@@ -8,6 +8,7 @@
     background: linear-gradient(90deg, rgba(80,222,134,1) 25%, rgba(13,71,34,1) 100%);
 }
 .header{
+    color:rgb(32, 44, 54);
     font-size: calc(1rem + 1vw );
     margin-left: 2%;
     margin-right: 2%;

@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 25%);
     grid-auto-rows: 150px;
-    justify-items:center;
+  
     align-items: center;
 }
 input{
@@ -22,9 +22,8 @@ button{
     font-weight: 700;
     letter-spacing: .04em;
     line-height: 16px;
-    padding: 18px 18px;
+    height:  calc(3rem + 10px );
     text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,rgba(255, 255, 255, 0.2) 0 0 12px,rgba(57, 31, 91, 0.6) 1px 1px 4px,rgba(57, 31, 91, 0.32) 4px 4px 16px;
-  
 }
 button:hover {
     transform: scale(0.96);
