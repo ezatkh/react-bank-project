@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Transactions from "./components/Transactions";
 import Operations from "./components/Operations";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
@@ -23,6 +23,13 @@ class App extends Component {
         break;
       }
     }
+    this.setState({
+      transactions: toModefyTransactions,
+    });
+  };
+  addTransaction = (newTransaction) => {
+    let toModefyTransactions = [...this.state.transactions];
+    toModefyTransactions.push(newTransaction);
     this.setState({
       transactions: toModefyTransactions,
     });
@@ -58,7 +65,13 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/operation" exact render={() => <Operations />} />
+              <Route
+                path="/operation"
+                exact
+                render={() => (
+                  <Operations addTransaction={this.addTransaction} />
+                )}
+              />
             </div>
           </div>
         </div>
