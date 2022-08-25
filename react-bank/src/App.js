@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Transactions from "./components/Transactions";
 import Operations from "./components/Operations";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
@@ -28,27 +29,40 @@ class App extends Component {
   };
   render() {
     let totalSum = 0;
+    let balance;
     let keys = this.state.transactions.map((key) => {
       totalSum += key.amount;
       return key.vendor;
     });
+    if (totalSum > 500) {
+      balance = <p className="greenBalance">Balance:{totalSum}</p>;
+    } else balance = <p className="redBalance">Balance:{totalSum}</p>;
     return (
-      <div className="App">
-        <div className="header">
-          <p>Ezat khaleeli</p>
-          <p>Transactions Amount: {totalSum}</p>
-        </div>
-        <div className="content">
-          <div className="innerContent">
-            <Transactions
-              key={keys}
-              transactions={this.state.transactions}
-              deleteTransaction={this.deleteTransaction}
-            />
-            <Operations />
+      <Router>
+        <div className="App">
+          <div className="header">
+            <p>Ezat khaleeli</p>
+            {balance}
+          </div>
+          <div className="content">
+            <div className="innerContent">
+              <Route
+                path="/"
+                exact
+                render={() => (
+                  <Transactions
+                    key={keys}
+                    transactions={this.state.transactions}
+                    deleteTransaction={this.deleteTransaction}
+                  />
+                )}
+              />
+
+              <Route path="/operation" exact render={() => <Operations />} />
+            </div>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

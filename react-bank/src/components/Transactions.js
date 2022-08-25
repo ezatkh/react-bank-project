@@ -12,7 +12,7 @@ class Transactions extends Component {
         />
       );
     });
-    return <div className="transactions">{allTransactions}</div>;
+    return <div className="transactions">{allTransactions} </div>;
   }
 }
 
