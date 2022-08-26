@@ -10,6 +10,7 @@ class Operations extends Component {
       amountInput: "",
     };
   }
+
   changeVendorInput = (e) => {
     this.setState({
       vendorInput: e.target.value,
@@ -29,6 +30,7 @@ class Operations extends Component {
     let amountInput = this.state.amountInput;
     let vendorInput = this.state.vendorInput;
     let categoryInput = this.state.categoryInput;
+
     if (amountInput && vendorInput && categoryInput) {
       if (!isNaN(amountInput)) {
         let newTransaction = {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../styles/Transaction.css";
 class Transaction extends Component {
   deleteTransaction = () => {
-    this.props.deleteTransaction(this.props.transaction.vendor);
+    this.props.deleteTransaction(this.props.transaction._id);
   };
   render() {
     return (

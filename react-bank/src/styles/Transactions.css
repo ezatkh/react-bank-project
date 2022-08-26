@@ -6,6 +6,10 @@
     color: #a22719;
     font-weight: bold;
     font-size: calc(1rem + 1vw ); 
+    cursor: pointer;
+}
+.fa:hover{
+   color: #d22d1b;
 }
 .btn{
 font-size: calc(0.6rem + 1vw );

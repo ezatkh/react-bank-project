@@ -11,33 +11,40 @@ class App extends Component {
       transactions: [],
     };
   }
-  async getTransactions() {
+
+  async postTransactionsToDB(newTransaction) {
+    return axios.post(`http://localhost:8000/transaction`, newTransaction);
+  }
+  async getTransactionsFromDB() {
     return axios.get("http://localhost:8000/transactions");
+  }
+  async deleteTransactionsFromDB(id) {
+    return await axios.delete(`http://localhost:8000/transaction/${id}`);
   }
 
   async componentDidMount() {
-    const transactionsInfo = await this.getTransactions();
+    const transactionsInfo = await this.getTransactionsFromDB();
     this.setState({ transactions: transactionsInfo.data });
   }
-  deleteTransaction = (transaction) => {
-    let toModefyTransactions = [...this.state.transactions];
-    for (let index in toModefyTransactions) {
-      if (toModefyTransactions[index].vendor === transaction) {
-        toModefyTransactions.splice(index, 1);
+
+  deleteTransaction = (id) => {
+    let allTransactions = [...this.state.transactions];
+    for (let index in allTransactions) {
+      if (allTransactions[index]._id === id) {
+        this.deleteTransactionsFromDB(id).then(() => {
+          this.componentDidMount();
+        });
         break;
       }
     }
-    this.setState({
-      transactions: toModefyTransactions,
-    });
   };
+
   addTransaction = (newTransaction) => {
-    let toModefyTransactions = [...this.state.transactions];
-    toModefyTransactions.push(newTransaction);
-    this.setState({
-      transactions: toModefyTransactions,
+    this.postTransactionsToDB(newTransaction).then(() => {
+      this.componentDidMount();
     });
   };
+
   render() {
     let totalSum = 0;
     let balance;
