@@ -7,9 +7,7 @@ grid-template-rows: 2fr 2fr 2fr 1fr;
 
 }
 input{
-
-    font-family: 'Libre Baskerville', serif;
-    font-size: calc(.7rem + 1vw );
+     font-size: calc(.7rem + 1vw );
     color:rgb(32, 44, 54);
     background-color: transparent;    
     outline: 0;
