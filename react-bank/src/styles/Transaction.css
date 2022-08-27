@@ -6,3 +6,9 @@
     align-items: center;
     border-bottom: 1px solid rgb(32, 44, 54);
 }
+.greenAmount{
+    color: #16b458
+}
+.redAmount{
+    color: #a22719
+}

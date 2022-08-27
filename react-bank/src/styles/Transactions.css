@@ -2,6 +2,15 @@
     
     color: rgb(32, 44, 54);
 }
+.headerTransactions{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+  grid-auto-rows: 100px;
+  justify-items:center;
+  align-items: center;
+  font-weight:600;
+    font-size: calc(.7rem + 1vw ); 
+}
 .fa{
     color: #a22719;
     font-weight: bold;

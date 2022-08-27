@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Transactions from "./components/Transactions";
 import Operations from "./components/Operations";
+import Catogeries from "./components/Catogeries";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 class App extends Component {
@@ -50,7 +51,7 @@ class App extends Component {
     let balance;
     let keys = this.state.transactions.map((key) => {
       totalSum += key.amount;
-      return key.vendor;
+      return key._id;
     });
     if (totalSum > 500) {
       balance = (
@@ -92,6 +93,14 @@ class App extends Component {
                 exact
                 render={() => (
                   <Operations addTransaction={this.addTransaction} />
+                )}
+              />
+
+              <Route
+                path="/catogeries"
+                exact
+                render={() => (
+                  <Catogeries transactions={this.state.transactions} />
                 )}
               />
             </div>

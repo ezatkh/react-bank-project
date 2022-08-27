@@ -5,16 +5,16 @@
     display: flex;
     flex-direction: column;
     background: rgb(204,215,218);
-background: linear-gradient(90deg, rgba(204,215,218,1) 14%, rgba(107,113,113,1) 93%);
+    background: linear-gradient(90deg, rgba(204,215,218,1) 14%, rgba(107,113,113,1) 93%);
 }
 .header{
     color:rgb(32, 44, 54);
     font-size: calc(1rem + 1vw );
     margin-left: 2%;
     margin-right: 2%;
- display: flex;
- justify-content: space-between;
- align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
 }
 .content{
@@ -27,7 +27,7 @@ background: linear-gradient(90deg, rgba(204,215,218,1) 14%, rgba(107,113,113,1) 
     margin: 2%;
 }
 .greenBalance{
-color: #16b458
+    color: #16b458
 }
 .redBalance{
     color: #a22719

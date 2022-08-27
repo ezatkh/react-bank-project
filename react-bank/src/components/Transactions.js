@@ -15,6 +15,12 @@ class Transactions extends Component {
     });
     return (
       <div className="transactions">
+        <div className="headerTransactions">
+          <div>Vandor</div>
+          <div>Category</div>
+          <div>Amount</div>
+          <div>Delete</div>
+        </div>
         {allTransactions}
         <Link to="/operation">
           <div className="s">

@@ -62,7 +62,7 @@ class Operations extends Component {
     return (
       <div className="operations">
         <div className="vendorInput in">
-          <label>vendor</label>
+          <label>Vendor</label>
           <input
             type="text"
             value={this.state.vendorInput}
@@ -70,7 +70,7 @@ class Operations extends Component {
           />
         </div>
         <div className="categoryInput in">
-          <label>category</label>
+          <label>Category</label>
           <input
             type="text"
             value={this.state.categoryInput}
@@ -78,7 +78,7 @@ class Operations extends Component {
           />
         </div>
         <div className="amountInput in">
-          <label>amount</label>
+          <label>Amount</label>
           <input
             type="text"
             value={this.state.amountInput}

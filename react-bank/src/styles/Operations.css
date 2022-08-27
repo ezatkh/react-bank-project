@@ -2,10 +2,8 @@
     color: rgb(32, 44, 54);
     display: grid;
 grid-template-rows: 2fr 2fr 2fr 1fr;
-    align-items: center;
     align-content: center;
     align-items: center;
-    display: grid;
 
 }
 input{
