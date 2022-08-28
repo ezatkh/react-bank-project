@@ -36,10 +36,10 @@ class Transactions extends Component {
           </button>
           <ul className="dropdown-content" style={{ display: displayContent }}>
             <Link to="/">
-              <div className="element">All Transactions</div>
+              <div className="element">All Transaction</div>
             </Link>
             <Link to="/catogeries">
-              <div className="element">Categories</div>
+              <div className="element">Category</div>
             </Link>
           </ul>
         </div>

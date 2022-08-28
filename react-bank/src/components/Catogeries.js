@@ -34,22 +34,22 @@ class Catogeries extends Component {
           </button>
           <ul className="dropdown-content" style={{ display: displayContent }}>
             <Link to="/">
-              <div className="element">All Transactions</div>
+              <div className="element">Transaction</div>
             </Link>
             <Link to="/catogeries">
-              <div className="element">Categories</div>
+              <div className="element">Category</div>
             </Link>
           </ul>
         </div>
         <div className="allCategories">
           <div className="category header">
-            <div className="name">Name</div>
+            <div className="name">Category</div>
             <div>mount</div>
           </div>
           {Object.keys(categories).map((oneCategory) => (
             <div className="category">
               <div className="name">{oneCategory}</div>
-              <div>{categories[oneCategory]}</div>
+              <div className="Amount">{categories[oneCategory]}</div>
             </div>
           ))}
         </div>

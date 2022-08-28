@@ -14,37 +14,22 @@ class App extends Component {
   }
 
   async postTransactionsToDB(newTransaction) {
-    return axios.post(`http://localhost:8000/transaction`, newTransaction);
+    axios.post(`http://localhost:8000/transaction`, newTransaction);
   }
   async getTransactionsFromDB() {
     return axios.get("http://localhost:8000/transactions");
   }
   async deleteTransactionsFromDB(id) {
-    return await axios.delete(`http://localhost:8000/transaction/${id}`);
+    await axios.delete(`http://localhost:8000/transaction/${id}`);
   }
 
   async componentDidMount() {
     const transactionsInfo = await this.getTransactionsFromDB();
     this.setState({ transactions: transactionsInfo.data });
   }
-
-  deleteTransaction = (id) => {
-    let allTransactions = [...this.state.transactions];
-    for (let index in allTransactions) {
-      if (allTransactions[index]._id === id) {
-        this.deleteTransactionsFromDB(id).then(() => {
-          this.componentDidMount();
-        });
-        break;
-      }
-    }
-  };
-
-  addTransaction = (newTransaction) => {
-    this.postTransactionsToDB(newTransaction).then(() => {
-      this.componentDidMount();
-    });
-  };
+  async componentDidUpdate() {
+    this.componentDidMount();
+  }
 
   render() {
     let totalSum = 0;
@@ -83,7 +68,7 @@ class App extends Component {
                   <Transactions
                     key={keys}
                     transactions={this.state.transactions}
-                    deleteTransaction={this.deleteTransaction}
+                    deleteTransaction={this.deleteTransactionsFromDB}
                   />
                 )}
               />
@@ -92,7 +77,7 @@ class App extends Component {
                 path="/operation"
                 exact
                 render={() => (
-                  <Operations addTransaction={this.addTransaction} />
+                  <Operations addTransaction={this.postTransactionsToDB} />
                 )}
               />
 

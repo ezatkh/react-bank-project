@@ -4,12 +4,13 @@
     flex-direction: column;
     align-items:center;
     justify-self: center;
+    
 }
 .category{
-    display: flex;
-    flex-direction: row;
-   margin: 30px;
-   gap: 100px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    margin: 20px; 
 }
 .header{
     font-weight: bold;

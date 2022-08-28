@@ -1,23 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import "../styles/Transaction.css";
-class Transaction extends Component {
-  deleteTransaction = () => {
-    this.props.deleteTransaction(this.props.transaction._id);
-  };
-  render() {
-    let colorAmount = "";
-    this.props.transaction.amount > 0
-      ? (colorAmount = "greenAmount")
-      : (colorAmount = "redAmount");
-    return (
-      <div className="transaction">
-        <div>{this.props.transaction.vendor}</div>
-        <div>{this.props.transaction.category}</div>
-        <div className={colorAmount}>{this.props.transaction.amount}</div>
-        <i className="fa fa-trash-o" onClick={this.deleteTransaction}></i>
-      </div>
-    );
-  }
-}
 
-export default Transaction;
+const TransactionFunction = ({ transaction, deleteTransaction }) => {
+  const getColorClass = () =>
+    transaction.amount > 0 ? "greenAmount" : "redAmount";
+  return (
+    <div className="transaction">
+      <div>{transaction.vendor}</div>
+      <div>{transaction.category}</div>
+      <div className={getColorClass()}>{transaction.amount}</div>
+      <i
+        className="fa fa-trash-o"
+        onClick={() => deleteTransaction(transaction._id)}
+      ></i>
+    </div>
+  );
+};
+
+export default TransactionFunction;
