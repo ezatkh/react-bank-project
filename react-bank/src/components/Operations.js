@@ -11,7 +11,7 @@ class Operations extends Component {
     };
   }
 
-  changeVendorInput = (e) => {
+  changeInputs = (e) => {
     this.setState({
       vendorInput: e.target.value,
     });
@@ -58,6 +58,7 @@ class Operations extends Component {
       } else alert("amount should be a number");
     } else alert("please fill all fields");
   };
+
   render() {
     return (
       <div className="operations">

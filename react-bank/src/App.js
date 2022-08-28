@@ -16,9 +16,11 @@ class App extends Component {
   async postTransactionsToDB(newTransaction) {
     axios.post(`http://localhost:8000/transaction`, newTransaction);
   }
+
   async getTransactionsFromDB() {
     return axios.get("http://localhost:8000/transactions");
   }
+
   async deleteTransactionsFromDB(id) {
     await axios.delete(`http://localhost:8000/transaction/${id}`);
   }
@@ -33,31 +35,22 @@ class App extends Component {
 
   render() {
     let totalSum = 0;
-    let balance;
-    let keys = this.state.transactions.map((key) => {
+    let colorBalance;
+    this.state.transactions.map((key) => {
       totalSum += key.amount;
-      return key._id;
     });
-    if (totalSum > 500) {
-      balance = (
-        <p className="greenBalance">
-          <span>Balance:</span>
-          {totalSum}
-        </p>
-      );
-    } else
-      balance = (
-        <p className="redBalance">
-          <span>Balance:</span>
-          {totalSum}
-        </p>
-      );
+    totalSum > 500
+      ? (colorBalance = "greenBalance")
+      : (colorBalance = "redBalance");
     return (
       <Router>
         <div className="App">
           <div className="header">
             <p>Ezat khaleeli</p>
-            {balance}
+            <p className={colorBalance}>
+              <span>Balance:</span>
+              {totalSum}
+            </p>
           </div>
           <div className="content">
             <div className="innerContent">
@@ -66,7 +59,6 @@ class App extends Component {
                 exact
                 render={() => (
                   <Transactions
-                    key={keys}
                     transactions={this.state.transactions}
                     deleteTransaction={this.deleteTransactionsFromDB}
                   />

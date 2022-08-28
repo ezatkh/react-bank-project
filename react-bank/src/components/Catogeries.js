@@ -8,31 +8,40 @@ class Catogeries extends Component {
       showList: false,
     };
   }
+  displayList() {
+    let displayContent;
+    this.state.showList
+      ? (displayContent = "dropdown-content block")
+      : (displayContent = "dropdown-content none");
+    return displayContent;
+  }
   showList = () => {
     this.setState({
       showList: !this.state.showList,
     });
   };
-  render() {
-    let displayContent = "";
-    if (this.state.showList) {
-      displayContent = "block";
-    } else displayContent = "none";
+  componentDidMount() {
+    this.getCateries();
+    this.displayList();
+  }
+  getCateries = () => {
     let categories = {};
     this.props.transactions.map((transaction) => {
-      if (categories[transaction.category.toLowerCase()]) {
-        categories[transaction.category.toLowerCase()] += transaction.amount;
-      } else {
-        categories[transaction.category.toLowerCase()] = transaction.amount;
-      }
+      categories[transaction.category.toLowerCase()] =
+        (categories[transaction.category.toLowerCase()] || 0) +
+        transaction.amount;
     });
+    return categories;
+  };
+  render() {
+    let categories = this.getCateries();
     return (
       <div className="categories">
         <div className="dropdown">
           <button className="dropbtn" onClick={this.showList}>
             Sort by
           </button>
-          <ul className="dropdown-content" style={{ display: displayContent }}>
+          <ul className={this.displayList()}>
             <Link to="/">
               <div className="element">Transaction</div>
             </Link>

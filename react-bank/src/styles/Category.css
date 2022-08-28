@@ -1,10 +1,7 @@
 .allCategories{
-    color: rgb(32, 44, 54);
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-self: center;
-    
+    align-items:center;    
 }
 .category{
     display: grid;
@@ -33,7 +30,6 @@
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
-    display: none;
     background-color: #f1f2f6;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     opacity: 99%;
@@ -44,4 +40,10 @@
   .element{
     margin: 10px;
     color: rgb(32, 44, 54);
+  }
+  .block{
+    display: block;
+  }
+  .none{
+    display: none;
   }
